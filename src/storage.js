@@ -1,6 +1,5 @@
 import Project from "./project.js"
 import Todo from "./todo.js"
-// storage.js
 export function saveProjects(projects) {
   localStorage.setItem("projects", JSON.stringify(projects));
 }
@@ -12,7 +11,6 @@ export function loadProjects() {
   try {
     let parsed = JSON.parse(data);
 
-    // Rebuild with Project and Todo class instances
     return parsed.map((p) => {
       const project = new Project(p.name, p.id);
       project.tasks = p.tasks.map(

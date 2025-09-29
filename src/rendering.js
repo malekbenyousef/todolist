@@ -25,7 +25,7 @@ export default function renderTask(task, project, form, dialog, allProjects) {
     priority.addEventListener("click", () => {
       let idx = priorities.indexOf(todo.priority);
       todo.priority = priorities[(idx + 1) % priorities.length];
-      saveProjects(allProjects); // ✅ persist change
+      saveProjects(allProjects); 
       renderTask(project.tasks, project, form, dialog, allProjects);
     });
 
@@ -39,7 +39,7 @@ export default function renderTask(task, project, form, dialog, allProjects) {
 
     deleteBtn.addEventListener("click", () => {
       project.tasks = project.tasks.filter((t) => t.id !== todo.id);
-      saveProjects(allProjects); // ✅ persist deletion
+      saveProjects(allProjects);
       renderTask(project.tasks, project, form, dialog, allProjects);
     });
 
