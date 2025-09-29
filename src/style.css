@@ -1,4 +1,219 @@
-img {
-width: 90%;
-max-width: 500px;
+/* Base Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  background: #f7f9fc;
+  color: #333;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-height: 100vh;
+  gap: 1rem;
+}
+
+/* Global buttons */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  background: #4a90e2;
+  color: white;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #357ab8;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+/* Layout */
+#project-container,
+#task_container {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  padding: 1rem;
+}
+
+#project-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#task_container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Project items */
+.project-item,
+#project-container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background: #f0f4ff;
+  transition: background 0.2s;
+}
+
+.project-item:hover,
+#project-container > div:hover {
+  background: #dce8ff;
+}
+
+/* Active project highlight */
+.project-item.active {
+  background: #4a90e2;
+  color: black;
+}
+
+.project-item.active button {
+  background: #fff;
+  color: #4a90e2;
+}
+
+/* Task items */
+.task {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.task:hover {
+  background: #f9fbff;
+}
+
+.task .title {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.task .meta {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Right-side actions (edit/delete buttons) */
+.task > div:last-child {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Completed tasks */
+.task.finished .title,
+.task.finished .meta {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Priority badge */
+.priority {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.priority.low {
+  background: #d4edda;
+  color: #155724;
+}
+
+.priority.normal {
+  background: #ffeeba;
+  color: #856404;
+}
+
+.priority.important {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Dialog styling */
+dialog {
+  border: none;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+dialog h2 {
+  margin-bottom: 1rem;
+  color: #4a90e2;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+menu {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+/* Completed tasks */
+.task.finished {
+  background: #f0f0f0;
+  border-color: #ccc;
+  opacity: 0.8;
+}
+
+.task.finished .title,
+.task.finished .meta {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Checkbox styling */
+.task input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #4a90e2; /* modern browsers */
+  margin-right: 0.5rem;
 }
